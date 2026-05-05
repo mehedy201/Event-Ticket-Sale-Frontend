@@ -78,7 +78,7 @@ const PaymentComponent = () => {
     const BASE_URL =
       window.location.hostname === "localhost"
         ? "http://localhost:5000"
-        : "";
+        : "https://moneris-payment-backend-production.up.railway.app";
 
     const MONERIS_MODE =
       window.location.hostname === "localhost" ? "qa" : "prod";

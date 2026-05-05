@@ -56,9 +56,9 @@ let router = createBrowserRouter([
         path: ":page/:limit",
         element: (
           <Suspense fallback={<LoadingComponents />}>
-            {/* <ProtectRoute> */}
+            <ProtectRoute>
               <Attendees />
-            {/* </ProtectRoute> */}
+            </ProtectRoute>
           </Suspense>
         ),
       },
@@ -66,9 +66,9 @@ let router = createBrowserRouter([
         path: "purcher/:page/:limit",
         element: (
           <Suspense fallback={<LoadingComponents />}>
-            {/* <ProtectRoute> */}
+            <ProtectRoute>
               <Purcher />
-            {/* </ProtectRoute> */}
+            </ProtectRoute>
           </Suspense>
         ),
       },
