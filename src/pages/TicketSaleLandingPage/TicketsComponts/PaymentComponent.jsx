@@ -214,7 +214,20 @@ const PaymentComponent = () => {
 
         /* ── Verify success হলেই navigate ── */
         if (verifyResponse.data.success) {
-          console.log("✅ [PROCESS] সফল! Navigate হচ্ছে...");
+          console.log("✅ [PROCESS] সফল! Resetting state and navigating...");
+          // Reset ticket and purchaser state after successful payment
+          setLowTicketsQuantity(0);
+          setFullTicketsQuantity(0);
+          setCorporateTicketsQuantity(0);
+          setLowTicketsPrice(0);
+          setFullTicketsPrice(0);
+          setCorporateTicketsPrice(0);
+          setTotalParice(0);
+          setPayAblePrice(0);
+          setCuponCode("");
+          setPurcherAttendeesInfo("");
+          setSteps(1);
+
           navigate(`/success/${verifyResponse.data.purcherID}`);
         } else {
           console.error("❌ [PROCESS] Verify failed:", verifyResponse.data);
