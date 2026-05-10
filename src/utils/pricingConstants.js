@@ -14,4 +14,4 @@ export const TAX_RATE = 0.15;
 export const GROUP_DISCOUNT_RATE = 0.1;
 
 export const COUPON_CODE = "Malik03";
-export const COUPON_DISCOUNT_AMOUNT = 505;
+export const COUPON_DISCOUNT_AMOUNT = 456;
