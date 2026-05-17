@@ -67,30 +67,30 @@ const TicketSaleLandingPage = () => {
     <div>
       {/* Events Tittle_______________________________________________________ */}
       {/* ________________________________________________________________________ */}
-      <div className="bg-blue-500 pt-20 pb-20">
+      <div className="bg-[#1bb798] pt-20 pb-20">
         <div className={tailwindContainerClasses}>
           <div className="flex gap-4 items-center">
             <img
               className="rounded-lg"
-              style={{ height: "100px", width: "auto" }}
+              style={{ height: "80px", width: "auto" }}
               src={logo}
               alt="Mehedi"
             />
             <h1 className="text-[20px] md:text-[30px] font-bold text-white">
-              Innovate, Empower, Thrive: Pioneering Solutions for Business,
-              Health, and Climate Resilience at #InnovateEmpowerThrive2027
+              3rd International Conference on Business Health and Climate.
             </h1>
           </div>
           <div className="flex items-center gap-6 pt-3">
             <div className="flex items-center gap-1">
               <CiCalendarDate size={18} color="white" />
-              <p className="text-white text-sm">April 19 to 21, 2027</p>
+              <p className="text-white text-sm font-bold">
+                Apr 19 – 21, 2027 || 09:00 AM
+              </p>
             </div>
             <div className="flex items-center gap-1">
               <LiaMapMarkerAltSolid size={18} color="white" />
               <p className="text-white text-sm font-bold">
-                Palace Convention Centre - Centre de congrès Palace, Montreal,
-                Canada
+                Laval, Québec - Canada
               </p>
             </div>
           </div>
