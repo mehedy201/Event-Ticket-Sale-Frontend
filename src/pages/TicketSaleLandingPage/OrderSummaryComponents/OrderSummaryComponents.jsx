@@ -109,7 +109,7 @@ const OrderSummaryComponents = () => {
               />
               <span
                 onClick={cuponCodeHandle}
-                className="flex items-center font-bold text-white px-3 bg-blue-500 h-9 cursor-pointer rounded-tr-md rounded-br-md"
+                className="flex items-center font-bold text-white px-3 bg-[#1bb798] h-9 cursor-pointer rounded-tr-md rounded-br-md"
               >
                 Apply
               </span>
