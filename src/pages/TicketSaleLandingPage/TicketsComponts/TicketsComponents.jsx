@@ -62,7 +62,7 @@ const TicketsComponents = () => {
               </h5>
               <p className="text-gray-500">
                 Sales end on{" "}
-                <span className="font-bold text-black">March 31, 2026</span>
+                <span className="font-bold text-black">December 20th</span>
               </p>
             </div>
             <div>
@@ -127,7 +127,7 @@ const TicketsComponents = () => {
               </h5>
               <p className="text-gray-500">
                 Sales end on{" "}
-                <span className="font-bold text-black">March 31, 2026</span>
+                <span className="font-bold text-black">December 20th</span>
               </p>
             </div>
             <div>
@@ -195,7 +195,7 @@ const TicketsComponents = () => {
               </h5>
               <p className="text-gray-500">
                 Sales end on{" "}
-                <span className="font-bold text-black">March 31, 2026</span>
+                <span className="font-bold text-black">December 20th</span>
               </p>
             </div>
             <div>
@@ -261,7 +261,7 @@ const TicketsComponents = () => {
               </h5>
               <p className="text-gray-500">
                 Sales end on{" "}
-                <span className="font-bold text-black">March 31, 2026</span>
+                <span className="font-bold text-black">December 20th</span>
               </p>
             </div>
             <div>
