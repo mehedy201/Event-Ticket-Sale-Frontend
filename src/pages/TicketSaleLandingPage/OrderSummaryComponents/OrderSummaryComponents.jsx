@@ -16,9 +16,11 @@ const OrderSummaryComponents = () => {
     lowTicketsQuantity,
     fullTicketsQuantity,
     corporateTicketsQuantity,
+    studentTicketsQuantity,
     lowTicketsPrice,
     fullTicketsPrice,
     corporateTicketsPrice,
+    studentTicketsPrice,
     totalPrice,
     payAblePrice,
     setPayAblePrice,
@@ -37,7 +39,10 @@ const OrderSummaryComponents = () => {
       totalWithTaxForDiscountCondition = (withTax + totalPrice).toFixed(2);
       setPayAblePrice((totalPrice + withTax).toFixed(2));
       if (
-        lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity ===
+        lowTicketsQuantity +
+          fullTicketsQuantity +
+          corporateTicketsQuantity +
+          studentTicketsQuantity ===
         1
       ) {
         setDiscountAmount(0);
@@ -45,7 +50,10 @@ const OrderSummaryComponents = () => {
       }
     }
     if (
-      lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity >
+      lowTicketsQuantity +
+        fullTicketsQuantity +
+        corporateTicketsQuantity +
+        studentTicketsQuantity >
       1
     ) {
       const discountPrice = (
@@ -56,7 +64,12 @@ const OrderSummaryComponents = () => {
         (totalWithTaxForDiscountCondition - discountPrice).toFixed(2),
       );
     }
-  }, [lowTicketsQuantity, fullTicketsQuantity, corporateTicketsQuantity]);
+  }, [
+    lowTicketsQuantity,
+    fullTicketsQuantity,
+    corporateTicketsQuantity,
+    studentTicketsQuantity,
+  ]);
 
   const [cuponErr, setCuponErr] = useState("");
   const [isCuponCodeTrue, setIsCuponCodeTrue] = useState(false);
@@ -113,14 +126,20 @@ const OrderSummaryComponents = () => {
           </p>
         )}
       </div>
-      {lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity >
+      {lowTicketsQuantity +
+        fullTicketsQuantity +
+        corporateTicketsQuantity +
+        studentTicketsQuantity >
         0 && (
         <div className="flex justify-between items-center py-2 border-b-1 border-gray-300">
           <p className="font-semibold text-md pb-2">Ticket Details</p>
           <p className="font-semibold text-md pb-2">Price</p>
         </div>
       )}
-      {lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity ==
+      {lowTicketsQuantity +
+        fullTicketsQuantity +
+        corporateTicketsQuantity +
+        studentTicketsQuantity ===
         0 && (
         <div className="flex flex-col justify-center items-center gap-5 py-10">
           <IoTicketOutline size={64} />
@@ -175,6 +194,22 @@ const OrderSummaryComponents = () => {
           </p>
         </div>
       )}
+      {studentTicketsQuantity > 0 && (
+        <div className="flex justify-between py-2">
+          <div>
+            <h5 className="font-bold text-[12px] sm:text-[14px]">
+              Student Registration
+            </h5>
+            <span className="font-bold text-[12px] sm:text-[14px]">
+              {studentTicketsQuantity} x US$
+              {TICKET_PRICES[TICKET_TYPES.STUDENT]}.00
+            </span>
+          </div>
+          <p className="font-bold text-[14px] sm:text-[16px]">
+            US${studentTicketsPrice}.00
+          </p>
+        </div>
+      )}
       {totalPrice > 0 && (
         <div className="pt-4 border-t-1 border-gray-300">
           <div className="flex items-start justify-between">
@@ -183,7 +218,8 @@ const OrderSummaryComponents = () => {
               <p className="text-sm">
                 {lowTicketsQuantity +
                   fullTicketsQuantity +
-                  corporateTicketsQuantity}{" "}
+                  corporateTicketsQuantity +
+                  studentTicketsQuantity}{" "}
                 Tickets
               </p>
             </div>

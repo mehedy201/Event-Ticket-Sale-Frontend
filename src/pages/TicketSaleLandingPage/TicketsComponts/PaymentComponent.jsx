@@ -17,10 +17,13 @@ const PaymentComponent = () => {
     setFullTicketsQuantity,
     corporateTicketsQuantity,
     setCorporateTicketsQuantity,
+    studentTicketsQuantity,
+    setStudentTicketsQuantity,
     // Price ___________________________________________
     setLowTicketsPrice,
     setFullTicketsPrice,
     setCorporateTicketsPrice,
+    setStudentTicketsPrice,
     setTotalParice,
     payAblePrice,
     setPayAblePrice,
@@ -34,7 +37,10 @@ const PaymentComponent = () => {
 
   useEffect(() => {
     if (
-      lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity ==
+      lowTicketsQuantity +
+        fullTicketsQuantity +
+        corporateTicketsQuantity +
+        studentTicketsQuantity ===
       0
     )
       navigate("/");
@@ -96,6 +102,7 @@ const PaymentComponent = () => {
           lowTicketsQuantity,
           fullTicketsQuantity,
           corporateTicketsQuantity,
+          studentTicketsQuantity,
           cuponCode,
         },
       }
@@ -173,7 +180,8 @@ const PaymentComponent = () => {
         const totalQuantity =
           Number(lowTicketsQuantity) +
           Number(fullTicketsQuantity) +
-          Number(corporateTicketsQuantity);
+          Number(corporateTicketsQuantity) +
+          Number(studentTicketsQuantity);
 
         const updatedAttendees = purcherAttendeesInfo.attendees.map((att) => ({
           ...att,
@@ -205,6 +213,7 @@ const PaymentComponent = () => {
             lowTicketsQuantity,
             fullTicketsQuantity,
             corporateTicketsQuantity,
+            studentTicketsQuantity,
             cuponCode,
             purcherAttendeesData: purcherAttendeesInfo,
           }
@@ -219,9 +228,11 @@ const PaymentComponent = () => {
           setLowTicketsQuantity(0);
           setFullTicketsQuantity(0);
           setCorporateTicketsQuantity(0);
+          setStudentTicketsQuantity(0);
           setLowTicketsPrice(0);
           setFullTicketsPrice(0);
           setCorporateTicketsPrice(0);
+          setStudentTicketsPrice(0);
           setTotalParice(0);
           setPayAblePrice(0);
           setCuponCode("");

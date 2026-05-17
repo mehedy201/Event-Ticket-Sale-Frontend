@@ -250,6 +250,7 @@ const AttendeesInfoComponent = () => {
     lowTicketsQuantity,
     fullTicketsQuantity,
     corporateTicketsQuantity,
+    studentTicketsQuantity,
     purcherAttendeesInfo,
     setPurcherAttendeesInfo,
     cuponCode,
@@ -261,7 +262,10 @@ const AttendeesInfoComponent = () => {
   useEffect(() => {
     if (cuponCode) setCuponCode("");
     if (
-      lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity ===
+      lowTicketsQuantity +
+        fullTicketsQuantity +
+        corporateTicketsQuantity +
+        studentTicketsQuantity ===
       0
     ) {
       navigate("/");
@@ -312,6 +316,11 @@ const AttendeesInfoComponent = () => {
       count: corporateTicketsQuantity,
       price: TICKET_PRICES[TICKET_TYPES.CORPORATE],
     },
+    {
+      type: TICKET_TYPES.STUDENT,
+      count: studentTicketsQuantity,
+      price: TICKET_PRICES[TICKET_TYPES.STUDENT],
+    },
   ];
 
   useEffect(() => {
@@ -350,7 +359,12 @@ const AttendeesInfoComponent = () => {
 
       methods.setValue("attendees", newAttendees);
     }
-  }, [lowTicketsQuantity, fullTicketsQuantity, corporateTicketsQuantity]);
+  }, [
+    lowTicketsQuantity,
+    fullTicketsQuantity,
+    corporateTicketsQuantity,
+    studentTicketsQuantity,
+  ]);
 
   return (
     <FormProvider {...methods}>

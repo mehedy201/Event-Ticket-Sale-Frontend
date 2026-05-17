@@ -17,12 +17,16 @@ const TicketsComponents = () => {
     setFullTicketsQuantity,
     corporateTicketsQuantity,
     setCorporateTicketsQuantity,
+    studentTicketsQuantity,
+    setStudentTicketsQuantity,
     lowTicketsPrice,
     setLowTicketsPrice,
     fullTicketsPrice,
     setFullTicketsPrice,
     corporateTicketsPrice,
     setCorporateTicketsPrice,
+    studentTicketsPrice,
+    setStudentTicketsPrice,
     totalPrice,
     setTotalParice,
     cuponCode,
@@ -243,6 +247,71 @@ const TicketsComponents = () => {
               </div>
             </div>
           </div>
+          {/* Student Registration____________________________________________ */}
+          <div className="sm:flex gap-2 justify-between py-5 border-b-1 border-gray-300">
+            <div>
+              <h2 className="text-[18px] md:text-[22px] font-bold pb-1">
+                Student Registration{" "}
+                <span className="bg-pink-300 text-xs font-light px-2 py-1 rounded">
+                  Venue and Online
+                </span>
+              </h2>
+              <h5 className="text-[14px] md:text-[16px] font-semibold pb-2">
+                Students currently enrolled in an academic institution.
+              </h5>
+              <p className="text-gray-500">
+                Sales end on{" "}
+                <span className="font-bold text-black">March 31, 2026</span>
+              </p>
+            </div>
+            <div>
+              <h2 className="font-bold pb-1">
+                US ${TICKET_PRICES[TICKET_TYPES.STUDENT]}.00
+              </h2>
+              <div className="flex items-center justify-between border border-gray-300 rounded-md">
+                <span
+                  onClick={() => {
+                    if (studentTicketsQuantity > 0) {
+                      setStudentTicketsQuantity(studentTicketsQuantity - 1);
+                      setStudentTicketsPrice(
+                        studentTicketsPrice -
+                          TICKET_PRICES[TICKET_TYPES.STUDENT],
+                      );
+                      setTotalParice(
+                        totalPrice - TICKET_PRICES[TICKET_TYPES.STUDENT],
+                      );
+                    } else {
+                      return;
+                    }
+                  }}
+                  className="px-3 py-2 cursor-pointer"
+                >
+                  <FiMinus />
+                </span>
+                <input
+                  className="text-center"
+                  style={{ width: "40px", display: "flex" }}
+                  value={studentTicketsQuantity}
+                  type="text"
+                  readOnly
+                />
+                <span
+                  onClick={() => {
+                    setStudentTicketsQuantity(studentTicketsQuantity + 1);
+                    setStudentTicketsPrice(
+                      studentTicketsPrice + TICKET_PRICES[TICKET_TYPES.STUDENT],
+                    );
+                    setTotalParice(
+                      totalPrice + TICKET_PRICES[TICKET_TYPES.STUDENT],
+                    );
+                  }}
+                  className="px-3 py-2 cursor-pointer"
+                >
+                  <FiPlus />
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
         {/* Tickets Order summary___________________________________________________ */}
         {/* ________________________________________________________________________ */}
@@ -255,7 +324,10 @@ const TicketsComponents = () => {
         </div>
       </div>
       <div className="flex justify-end">
-        {lowTicketsQuantity + fullTicketsQuantity + corporateTicketsQuantity >
+        {lowTicketsQuantity +
+          fullTicketsQuantity +
+          corporateTicketsQuantity +
+          studentTicketsQuantity >
         0 ? (
           <span
             onClick={() => {

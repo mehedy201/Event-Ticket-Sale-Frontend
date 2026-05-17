@@ -20,10 +20,12 @@ const TicketSaleLandingPage = () => {
   const [lowTicketsQuantity, setLowTicketsQuantity] = useState(0);
   const [fullTicketsQuantity, setFullTicketsQuantity] = useState(0);
   const [corporateTicketsQuantity, setCorporateTicketsQuantity] = useState(0);
+  const [studentTicketsQuantity, setStudentTicketsQuantity] = useState(0);
   // Price ___________________________________________
   const [lowTicketsPrice, setLowTicketsPrice] = useState(0);
   const [fullTicketsPrice, setFullTicketsPrice] = useState(0);
   const [corporateTicketsPrice, setCorporateTicketsPrice] = useState(0);
+  const [studentTicketsPrice, setStudentTicketsPrice] = useState(0);
   const [totalPrice, setTotalParice] = useState(0);
   const [cuponCode, setCuponCode] = useState("");
   // After Price Calculation__________________________
@@ -43,6 +45,8 @@ const TicketSaleLandingPage = () => {
     setFullTicketsQuantity,
     corporateTicketsQuantity,
     setCorporateTicketsQuantity,
+    studentTicketsQuantity,
+    setStudentTicketsQuantity,
     // Price ___________________________________________
     lowTicketsPrice,
     setLowTicketsPrice,
@@ -50,6 +54,8 @@ const TicketSaleLandingPage = () => {
     setFullTicketsPrice,
     corporateTicketsPrice,
     setCorporateTicketsPrice,
+    studentTicketsPrice,
+    setStudentTicketsPrice,
     totalPrice,
     setTotalParice,
     payAblePrice,
