@@ -18,11 +18,17 @@ const Dashboard = () => {
   const isPurcher = path.includes("/dashboard/purcher");
 
   const [user, loading] = useAuthState(auth);
-
+  const [signOut] = useSignOut(auth);
   const handleSignOut = async () => {
     const success = await signOut();
     if (success) navigate("/log-in");
   };
+
+  if(loading){
+    return <div className="flex justify-center items-center h-screen">
+      <p>Loading...</p>
+    </div>  
+  }
 
   return (
     <div>
