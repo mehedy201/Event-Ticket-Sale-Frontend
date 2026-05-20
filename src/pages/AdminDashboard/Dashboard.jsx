@@ -1,23 +1,34 @@
 import { CiCalendarDate } from "react-icons/ci";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { tailwindContainerClasses } from "../../utils/tailwindClasses";
 import logo from "../../assets/logo.jpg";
 import usePageTracking from "../../hooks/usePageTracking";
+import auth from '../../../firebase.config';
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+
 
 const Dashboard = () => {
   usePageTracking();
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const isAttendees =
     path.startsWith("/dashboard/") && !path.includes("/purcher");
   const isPurcher = path.includes("/dashboard/purcher");
 
+  const [user, loading] = useAuthState(auth);
+
+  const handleSignOut = async () => {
+    const success = await signOut();
+    if (success) navigate("/log-in");
+  };
+
   return (
     <div>
       {/* Events Tittle_______________________________________________________ */}
       {/* ________________________________________________________________________ */}
-      <div className="bg-blue-500 pt-20 pb-20">
+      <div className="bg-[#1bb798] pt-20 pb-20">
         <div className={tailwindContainerClasses}>
           <div className="flex gap-4 items-center">
             <img
@@ -49,7 +60,13 @@ const Dashboard = () => {
       {/* ________________________________________________________________________ */}
       <div style={{ marginTop: "-48px" }} className={tailwindContainerClasses}>
         <div className="bg-white mb-4 rounded-lg p-4">
-          <h2 className="font-bold text-xl pb-3">Dashboard</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-bold text-xl pb-3">Dashboard</h2>
+            {
+              user &&
+              <button className="border p-2 rounded-lg cursor-pointer" onClick={handleSignOut}>Log Out</button>
+            }
+          </div>
           <nav className="flex items-center gap-4">
             <NavLink
               to="/dashboard/1/10"

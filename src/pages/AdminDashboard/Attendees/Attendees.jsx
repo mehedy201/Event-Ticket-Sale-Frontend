@@ -27,7 +27,7 @@ const Attendees = () => {
     setLoading(true);
     axios
       .get(
-        `http://localhost:5000/api/v1/ThriveGlobalForum/attendees-data?page=${page}&search=${search}`,
+        `https://moneris-payment-backend-production.up.railway.app/api/v1/ThriveGlobalForum/attendees-data?page=${page}&search=${search}`,
       )
       .then((res) => {
         if (res.status === 200) {
@@ -55,7 +55,7 @@ const Attendees = () => {
 
   const handleDownloadExcel = () => {
     window.open(
-      "http://localhost:5000/api/v1/ThriveGlobalForum/download-Full-Attendees-Excel",
+      "https://moneris-payment-backend-production.up.railway.app/api/v1/ThriveGlobalForum/download-Full-Attendees-Excel",
       "_blank",
     );
   };
@@ -94,7 +94,7 @@ const Attendees = () => {
             </div>
             <a
               style={{ textDecoration: "none" }}
-              href={`http://localhost:5000/api/v1/ThriveGlobalForum/download-attendees-tickets/${att._id}`}
+              href={`https://moneris-payment-backend-production.up.railway.app/api/v1/ThriveGlobalForum/download-attendees-tickets/${att._id}`}
             >
               Download Ticket
             </a>

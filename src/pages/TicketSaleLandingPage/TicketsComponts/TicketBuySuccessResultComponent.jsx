@@ -125,7 +125,7 @@ const TicketBuySuccessResultComponent = () => {
                   </div>
                   <a
                     style={{ textDecoration: "none", fontWeight: "bold" }}
-                    href={`http://localhost:5000/api/v1/ThriveGlobalForum/download-attendees-tickets/${att._id}`}
+                    href={`https://moneris-payment-backend-production.up.railway.app/api/v1/ThriveGlobalForum/download-attendees-tickets/${att._id}`}
                   >
                     Download Invoice
                   </a>

@@ -42,7 +42,7 @@ let router = createBrowserRouter([
         path: "/success/:id",
         loader: ({ params }) =>
           axios.get(
-            `http://localhost:5000/api/v1/ThriveGlobalForum/purcher/${params.id}`,
+            `https://moneris-payment-backend-production.up.railway.app/api/v1/ThriveGlobalForum/purcher/${params.id}`,
           ),
         element: <TicketBuySuccessResultComponent />,
       },
@@ -50,7 +50,9 @@ let router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <ProtectRoute>
+      <Dashboard />
+    </ProtectRoute >,
     children: [
       {
         path: ":page/:limit",
